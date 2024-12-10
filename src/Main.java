@@ -60,7 +60,8 @@ public class Main {
         int num = scan.nextInt();
         scan.nextLine();
 
-
         return num;
     }
+
+
 }
