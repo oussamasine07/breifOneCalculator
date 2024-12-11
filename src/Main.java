@@ -37,7 +37,8 @@ public class Main {
                     menu = showMenu();
                     break;
                 case 5:
-                    System.out.println("power");
+                    resultDouble = powerfunc();
+                    System.out.println("the result is " + resultDouble);
                     menu = showMenu();
                     break;
                 case 6:
@@ -104,6 +105,12 @@ public class Main {
         return  n1 / n2;
     }
 
+    // power functionality
+    static double powerfunc () {
+        int n = getNumber();
+        return (double) Math.pow(n, 2);
+    }
+
     // create function that ask user to enter 2 numbers
     static int[] getNumbers () {
         // ask the user to enter 2 number
@@ -118,5 +125,14 @@ public class Main {
 
         int[] nums = { num1, num2 };
         return nums;
+    }
+
+    // create a function that get only one number
+    static int getNumber () {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("please enter a number ");
+        int n = scan.nextInt();
+        scan.nextLine();
+        return n;
     }
 }
