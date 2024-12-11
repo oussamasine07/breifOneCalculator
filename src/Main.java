@@ -6,6 +6,7 @@ public class Main {
         // start the application
         boolean appRunning = true;
         int menu = showMenu();
+        int result;
 
         // ask the user to choose from the menu
         while (appRunning) {
@@ -15,12 +16,13 @@ public class Main {
                     appRunning = false;
                     break;
                 case 1:
-                    int result = addfunc();
+                    result = addfunc();
                     System.out.println("the result is " + result);
                     menu = showMenu();
                     break;
                 case 2:
-                    System.out.println("substruction");
+                    result = substructfunc();
+                    System.out.println("the result is " + result);
                     menu = showMenu();
                     break;
                 case 3:
@@ -65,9 +67,16 @@ public class Main {
         return num;
     }
 
+    // addition functionality
     static int addfunc () {
         int[] nums = getNumbers();
         return nums[0] + nums[1];
+    }
+
+    // substruction functionlity
+    static int substructfunc () {
+        int[] nums = getNumbers();
+        return nums[0] - nums[1];
     }
 
     // create function that ask user to enter 2 numbers
