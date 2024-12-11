@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -46,28 +47,42 @@ public class Main {
                     System.out.println("the result is " + result);
                     menu = showMenu();
                     break;
+                case 7:
+                    resultDouble = squarefunc();
+                    System.out.println("the result is " + resultDouble);
+                    menu = showMenu();
+                    break;
+                case 8:
+                    menu = showMenu();
+                    break;
             }
         }
     }
 
     static int showMenu () {
-        System.out.println("**************************************************");
-        System.out.println("************* please choose a number *************");
-        System.out.println("**************************************************");
-        System.out.println("For Addition choose             =>  1");
-        System.out.println("For Substruction choose         =>  2");
-        System.out.println("For Multiplication choose       =>  3");
-        System.out.println("For Devision choose             =>  4");
-        System.out.println("For Power choose                =>  5");
-        System.out.println("Fro Factorials choose           =>  6");
-        System.out.println("To Quit the application choose  =>  0");
-
         // take user input
         Scanner scan = new Scanner(System.in);
-        int num = scan.nextInt();
-        scan.nextLine();
+        try {
+            System.out.println("**************************************************");
+            System.out.println("************* please choose a number *************");
+            System.out.println("**************************************************");
+            System.out.println("For Addition choose             =>  1");
+            System.out.println("For Substruction choose         =>  2");
+            System.out.println("For Multiplication choose       =>  3");
+            System.out.println("For Devision choose             =>  4");
+            System.out.println("For Power choose                =>  5");
+            System.out.println("For Factorials choose           =>  6");
+            System.out.println("For Square choose               =>  7");
+            System.out.println("To Quit the application choose  =>  0");
 
-        return num;
+            int num = scan.nextInt();
+            scan.nextLine();
+            return num;
+        }
+        catch (InputMismatchException e) {
+            System.out.println("please enter a valid number");
+            return 7;
+        }
     }
 
     // addition functionality
@@ -119,10 +134,17 @@ public class Main {
         return n;
     }
 
+    // square functionality
+    static double squarefunc () {
+        int n = getNumber();
+        return Math.sqrt( (double) n );
+    }
+
     // create function that ask user to enter 2 numbers
     static int[] getNumbers () {
         // ask the user to enter 2 number
         Scanner scan = new Scanner(System.in);
+
         System.out.println("Please enter number 1");
         int num1 = scan.nextInt();
         scan.nextLine();
@@ -133,6 +155,7 @@ public class Main {
 
         int[] nums = { num1, num2 };
         return nums;
+
     }
 
     // create a function that get only one number
@@ -143,4 +166,10 @@ public class Main {
         scan.nextLine();
         return n;
     }
+
+    // validate numbers
+    static int validateNumber ( int num ) {
+        return 0;
+    }
+
 }
