@@ -11,10 +11,12 @@ public class Main {
         while (appRunning) {
             switch (menu) {
                 case 0:
+                    System.out.println("Good Bye");
                     appRunning = false;
                     break;
                 case 1:
-                    System.out.println("addition");
+                    int result = addfunc();
+                    System.out.println("the result is " + result);
                     menu = showMenu();
                     break;
                 case 2:
@@ -63,5 +65,24 @@ public class Main {
         return num;
     }
 
+    static int addfunc () {
+        int[] nums = getNumbers();
+        return nums[0] + nums[1];
+    }
 
+    // create function that ask user to enter 2 numbers
+    static int[] getNumbers () {
+        // ask the user to enter 2 number
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter number 1");
+        int num1 = scan.nextInt();
+        scan.nextLine();
+
+        System.out.println("Please enter number 2");
+        int num2 = scan.nextInt();
+        scan.nextLine();
+
+        int[] nums = { num1, num2 };
+        return nums;
+    }
 }
