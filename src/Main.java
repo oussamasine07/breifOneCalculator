@@ -7,6 +7,7 @@ public class Main {
         boolean appRunning = true;
         int menu = showMenu();
         int result;
+        double resultDouble;
 
         // ask the user to choose from the menu
         while (appRunning) {
@@ -31,7 +32,8 @@ public class Main {
                     menu = showMenu();
                     break;
                 case 4:
-                    System.out.println("devision");
+                    resultDouble = devisionfunc();
+                    System.out.println("the result is " + resultDouble);
                     menu = showMenu();
                     break;
                 case 5:
@@ -84,6 +86,22 @@ public class Main {
     static int multiplicationfunc () {
         int[] nums = getNumbers();
         return nums[0] * nums[1];
+    }
+
+    // multiplication functionlity
+    static double devisionfunc () {
+        int[] nums = getNumbers();
+
+        // check if the user enters a 0
+        if ( nums[0] == 0 || nums[1] == 0 ) {
+            System.out.println("can't devide by 0, please enter a greater number");
+            nums = getNumbers();
+        }
+        // convert data types from an int to a double
+        double n1 = (double) nums[0];
+        double n2 = (double) nums[1];
+        // make the calculation
+        return  n1 / n2;
     }
 
     // create function that ask user to enter 2 numbers
