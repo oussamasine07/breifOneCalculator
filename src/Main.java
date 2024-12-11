@@ -26,7 +26,8 @@ public class Main {
                     menu = showMenu();
                     break;
                 case 3:
-                    System.out.println("multiplication");
+                    result = multiplicationfunc();
+                    System.out.println("the result is " + result);
                     menu = showMenu();
                     break;
                 case 4:
@@ -77,6 +78,12 @@ public class Main {
     static int substructfunc () {
         int[] nums = getNumbers();
         return nums[0] - nums[1];
+    }
+
+    // multiplication functionlity
+    static int multiplicationfunc () {
+        int[] nums = getNumbers();
+        return nums[0] * nums[1];
     }
 
     // create function that ask user to enter 2 numbers
