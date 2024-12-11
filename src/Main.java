@@ -60,8 +60,8 @@ public class Main {
     }
 
     static int showMenu () {
-        // take user input
         Scanner scan = new Scanner(System.in);
+        // take user input
         try {
             System.out.println("**************************************************");
             System.out.println("************* please choose a number *************");
@@ -81,7 +81,7 @@ public class Main {
         }
         catch (InputMismatchException e) {
             System.out.println("please enter a valid number");
-            return 7;
+            return 8;
         }
     }
 
@@ -121,13 +121,13 @@ public class Main {
 
     // power functionality
     static double powerfunc () {
-        int n = getNumber();
+        int n = getNumber("please enter a numbr");
         return (double) Math.pow(n, 2);
     }
 
     // power functionality
     static int factorialfunc () {
-        int n = getNumber();
+        int n = getNumber("please enter a numbr");
         for ( int i = n - 1 ; i > 0; i--) {
             n = n * i;
         }
@@ -136,40 +136,36 @@ public class Main {
 
     // square functionality
     static double squarefunc () {
-        int n = getNumber();
+        int n = getNumber("please enter a numbr");
         return Math.sqrt( (double) n );
     }
 
     // create function that ask user to enter 2 numbers
     static int[] getNumbers () {
         // ask the user to enter 2 number
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("Please enter number 1");
-        int num1 = scan.nextInt();
-        scan.nextLine();
-
-        System.out.println("Please enter number 2");
-        int num2 = scan.nextInt();
-        scan.nextLine();
+        //Scanner scan = new Scanner(System.in);
+        int num1 = getNumber("please enter number 1");
+        int num2 = getNumber("please enter number 2");
 
         int[] nums = { num1, num2 };
         return nums;
 
+
     }
 
     // create a function that get only one number
-    static int getNumber () {
+    static int getNumber ( String msg ) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("please enter a number ");
-        int n = scan.nextInt();
-        scan.nextLine();
-        return n;
-    }
+        try {
+            System.out.println(msg);
+            int n = scan.nextInt();
+            scan.nextLine();
+            return n;
+        }
+        catch ( InputMismatchException e ) {
+            return getNumber("please enter a valid number");
+        }
 
-    // validate numbers
-    static int validateNumber ( int num ) {
-        return 0;
     }
 
 }
