@@ -143,7 +143,6 @@ public class Main {
     // create function that ask user to enter 2 numbers
     static int[] getNumbers () {
         // ask the user to enter 2 number
-        //Scanner scan = new Scanner(System.in);
         int num1 = getNumber("please enter number 1");
         int num2 = getNumber("please enter number 2");
 
