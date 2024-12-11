@@ -42,13 +42,12 @@ public class Main {
                     menu = showMenu();
                     break;
                 case 6:
-                    System.out.println("factorial");
+                    result = factorialfunc();
+                    System.out.println("the result is " + result);
                     menu = showMenu();
                     break;
             }
         }
-
-
     }
 
     static int showMenu () {
@@ -109,6 +108,15 @@ public class Main {
     static double powerfunc () {
         int n = getNumber();
         return (double) Math.pow(n, 2);
+    }
+
+    // power functionality
+    static int factorialfunc () {
+        int n = getNumber();
+        for ( int i = n - 1 ; i > 0; i--) {
+            n = n * i;
+        }
+        return n;
     }
 
     // create function that ask user to enter 2 numbers
